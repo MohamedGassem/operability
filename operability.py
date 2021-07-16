@@ -39,7 +39,7 @@ with st.sidebar:
     #if new_task:
     operateur = st.text_input('Nom de l\'opérateur')
     if not operateur:
-        st.warning('Entrez un temps de travail ci-dessus')
+        st.warning('Entrez un nom ci-dessus')
 
 task_list = ['Bennes jaunes', 'Bennes vertes', 'Amorçage', 'Autocontrôle', 'Partiels']
 for i in range(nb_taches):
