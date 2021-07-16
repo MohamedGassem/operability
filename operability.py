@@ -40,15 +40,15 @@ with st.sidebar:
     operateur = st.text_input('Nom de l\'opérateur')
     if not operateur:
         st.warning('Entrez un nom ci-dessus')
-option = []
-task_list = ['Bennes jaunes', 'Bennes vertes', 'Amorçage', 'Autocontrôle', 'Partiels']
+        
+task_lists = ['Bennes jaunes', 'Bennes vertes', 'Amorçage', 'Autocontrôle', 'Partiels']
 for i in range(nb_taches):
-    option.append(st.selectbox(f'Test {i+1}', task_list, key=i))
+    option = st.selectbox(f'Tâche {i+1}', task_lists, key=i)
     h1,h2,h3,h4 = st.beta_columns(4)
     time = h1.number_input('Temps passé sur cette tâche', value=10, key=i)
     frequency = h2.number_input('Nombre de fois que cette tâche a été faite', value=1, key=1000*i)
     task_time[i] = time * frequency
-    task_list[i] = option[i]
+    task_list[i] = option
     st.write(task_time[i])
 if st.button('calculer'):
     task_dict = operability(task_time, task_list, total_hour)
